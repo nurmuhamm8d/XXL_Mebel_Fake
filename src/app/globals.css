@@ -1,13 +1,25 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light (inspired by second screen) */
+  --page-bg: #f5f8ff;
+  --surface: #ffffff;
+  --surface-muted: #f1f4fa;
+  --text-strong: #0f172a;
+  --text-muted: #4b5563;
+  --border: #e2e8f0;
+  --accent: #2b78ff;
+  --accent-contrast: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  /* Dark (inspired by first screen) */
+  --page-bg: #0f0e11;
+  --surface: #16141a;
+  --surface-muted: #1d1b22;
+  --text-strong: #f7f7fb;
+  --text-muted: #b8b8c2;
+  --border: #2a2730;
+  --accent: #ff6b3d;
+  --accent-contrast: #0f0e11;
 }
 
 html,
@@ -17,9 +29,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-strong);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,10 +45,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
