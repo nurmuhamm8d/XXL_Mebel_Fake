@@ -33,10 +33,10 @@ export function Testimonials() {
         It is a long established fact that a reader will be distracted by the service.
       </Text>
 
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5}>
-        {testimonials.map((item) => (
+      <SimpleGrid columns={{ base: 1, md: 3 }} gap={5}>
+        {testimonials.map((item, index) => (
           <Box
-            key={item.name + item.date}
+            key={`${item.name}-${item.date}-${index}`}
             borderWidth="1px"
             borderColor="var(--border)"
             borderRadius="lg"

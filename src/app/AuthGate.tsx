@@ -16,9 +16,7 @@ export function AuthGate({ children }: AuthGateProps) {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.auth);
-  const [hydrated, setHydrated] = useState(
-    () => typeof window !== "undefined"
-  );
+  const [hydrated, setHydrated] = useState(false);
 
   const isAuthPage = pathname === "/login" || pathname === "/register";
 
@@ -37,9 +35,12 @@ export function AuthGate({ children }: AuthGateProps) {
         })
       );
     }
-
-    setTimeout(() => setHydrated(true), 0);
   }, [auth.token, dispatch]);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setHydrated(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   useEffect(() => {
     if (!hydrated) return;

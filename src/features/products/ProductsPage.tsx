@@ -14,6 +14,7 @@ import {
   Stack,
   Input,
   Textarea,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import {
   type Product,
@@ -199,7 +200,7 @@ export default function ProductsPage() {
         </Stack>
       </Box>
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mb={6}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6} mb={6}>
         {pageProducts.map((product) => (
           <Box
             key={product.id}
@@ -208,7 +209,7 @@ export default function ProductsPage() {
             overflow="hidden"
             p={4}
           >
-            <Box as={Link} href={`/products/${product.id}`}>
+            <ChakraLink as={Link} href={`/products/${product.id}`} display="block">
               <Image
                 src={product.image}
                 alt={product.title}
@@ -217,12 +218,12 @@ export default function ProductsPage() {
                 objectFit="contain"
                 mb={4}
               />
-            </Box>
-            <Box as={Link} href={`/products/${product.id}`}>
-              <Text fontWeight="semibold" noOfLines={2} mb={2}>
+            </ChakraLink>
+            <ChakraLink as={Link} href={`/products/${product.id}`} display="block">
+              <Text fontWeight="semibold" lineClamp={2} mb={2}>
                 {product.title}
               </Text>
-            </Box>
+            </ChakraLink>
             <Flex justify="space-between" align="center" mt={2}>
               <Text fontWeight="bold">{product.price} $</Text>
               <Button
@@ -265,7 +266,7 @@ export default function ProductsPage() {
           size="sm"
           variant="outline"
           onClick={() => setPage((p) => Math.max(1, p - 1))}
-          isDisabled={page === 1}
+          disabled={page === 1}
         >
           Назад
         </Button>
@@ -276,7 +277,7 @@ export default function ProductsPage() {
           size="sm"
           variant="outline"
           onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-          isDisabled={page === totalPages}
+          disabled={page === totalPages}
         >
           Вперед
         </Button>

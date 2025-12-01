@@ -1,5 +1,4 @@
 :root {
-  /* Light (inspired by second screen) */
   --page-bg: #f5f8ff;
   --surface: #ffffff;
   --surface-muted: #f1f4fa;
@@ -11,7 +10,6 @@
 }
 
 [data-theme="dark"] {
-  /* Dark (inspired by first screen) */
   --page-bg: #0f0e11;
   --surface: #16141a;
   --surface-muted: #1d1b22;
