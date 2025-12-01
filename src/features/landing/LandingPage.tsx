@@ -13,7 +13,7 @@ export function LandingPage() {
   return (
     <Box bg="var(--page-bg)" color="var(--text-strong)" minH="100vh">
       <Container maxW="1200px" px={{ base: 4, md: 6 }} py={10}>
-        <Stack spacing={12}>
+        <Stack gap={12}>
           <Hero />
           <StatsBand />
           <AboutSection />

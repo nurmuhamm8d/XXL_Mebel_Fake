@@ -10,6 +10,7 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { addToCart } from "@/features/cart/cartSlice";
@@ -103,7 +104,7 @@ export function ProductsShowcase() {
         </Text>
       )}
 
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={5}>
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} gap={5}>
         {filtered.map((product) => (
           <Box
             key={product.id}
@@ -114,7 +115,7 @@ export function ProductsShowcase() {
             bg="var(--surface)"
             boxShadow="md"
           >
-            <Box as={Link} href={`/products/${product.id}`} display="block">
+            <ChakraLink as={Link} href={`/products/${product.id}`} display="block">
               <Image
                 src={product.image}
                 alt={product.title}
@@ -123,12 +124,12 @@ export function ProductsShowcase() {
                 objectFit="contain"
                 bg="gray.50"
               />
-            </Box>
+            </ChakraLink>
             <Box p={4}>
-              <Text fontWeight="semibold" mb={1} noOfLines={1}>
+              <Text fontWeight="semibold" mb={1} lineClamp={1}>
                 {product.title}
               </Text>
-              <Text color="var(--text-muted)" fontSize="sm" noOfLines={2} mb={3}>
+              <Text color="var(--text-muted)" fontSize="sm" lineClamp={2} mb={3}>
                 {product.description}
               </Text>
               <Flex justify="space-between" align="center" mb={3}>
